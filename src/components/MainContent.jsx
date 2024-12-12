@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid2";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
@@ -26,19 +26,120 @@ export default function MainContent() {
   const [today, setToday] = useState("");
 
   const [selectedCity, setSelectedCity] = useState({
-    desplayName: "القاهرة",
+    displayName: "القاهرة",
     apiName: "Cairo",
   });
-  const avilableCities = [
+  const availableCities = [
     {
-      desplayName: "القاهرة",
+      displayName: "القاهرة",
       apiName: "Cairo",
     },
     {
-      desplayName: "الاسكندرية",
+      displayName: "الجيزة",
+      apiName: "Giza",
+    },
+    {
+      displayName: "الاسكندرية",
       apiName: "Alexandria",
     },
+    {
+      displayName: "أسوان",
+      apiName: "Aswan",
+    },
+    {
+      displayName: "الأقصر",
+      apiName: "Luxor",
+    },
+    {
+      displayName: "سوهاج",
+      apiName: "Sohag",
+    },
+    {
+      displayName: "أسيوط",
+      apiName: "Assiut",
+    },
+    {
+      displayName: "بني سويف",
+      apiName: "BeniSuef",
+    },
+    {
+      displayName: "الفيوم",
+      apiName: "Fayoum",
+    },
+    {
+      displayName: "المنيا",
+      apiName: "Minya",
+    },
+    {
+      displayName: "البحيرة",
+      apiName: "Beheira",
+    },
+    {
+      displayName: "الدقهلية",
+      apiName: "Dakahlia",
+    },
+    {
+      displayName: "الشرقية",
+      apiName: "Sharqia",
+    },
+    {
+      displayName: "دمياط",
+      apiName: "Damietta",
+    },
+    {
+      displayName: "بورسعيد",
+      apiName: "PortSaid",
+    },
+    {
+      displayName: "الإسماعيلية",
+      apiName: "Ismailia",
+    },
+    {
+      displayName: "السويس",
+      apiName: "Suez",
+    },
+    {
+      displayName: "مطروح",
+      apiName: "Matruh",
+    },
+    {
+      displayName: "الغربية",
+      apiName: "Gharbia",
+    },
+    {
+      displayName: "كفر الشيخ",
+      apiName: "KafrElSheikh",
+    },
+    {
+      displayName: "القليوبية",
+      apiName: "Qalyubia",
+    },
+    {
+      displayName: "المنوفية",
+      apiName: "Monufia",
+    },
+    {
+      displayName: "جنوب سيناء",
+      apiName: "SouthSinai",
+    },
+    {
+      displayName: "شمال سيناء",
+      apiName: "NorthSinai",
+    },
+    {
+      displayName: "قنا",
+      apiName: "Qena",
+    },
+    {
+      displayName: "البحر الأحمر",
+      apiName: "RedSea",
+    },
+    {
+      displayName: "الوادي الجديد",
+      apiName: "NewValley",
+    },
   ];
+
   const prayersArray = [
     {
       key: "Fajr",
@@ -77,7 +178,7 @@ export default function MainContent() {
   }, [selectedCity]);
 
   const handleCityChange = (event) => {
-    const cityObject = avilableCities.find((city) => {
+    const cityObject = availableCities.find((city) => {
       return city.apiName == event.target.value;
     });
     setSelectedCity(cityObject);
@@ -140,7 +241,7 @@ export default function MainContent() {
         <Grid xs={6}>
           <div>
             <h2 style={{ fontSize: "27px" }}>{today}</h2>
-            <h2 style={{ fontSize: "40px" }}>{selectedCity.desplayName}</h2>
+            <h2 style={{ fontSize: "40px" }}>{selectedCity.displayName}</h2>
           </div>
         </Grid>
         <Grid xs={6}>
@@ -199,17 +300,17 @@ export default function MainContent() {
             <span style={{ color: "white" }}>المدينة</span>
           </InputLabel>
           <Select
-            style={{ color: "white" }}
+            style={{ color: "white"}}
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             // value={age}
             // label="Age"
             onChange={handleCityChange}
           >
-            {avilableCities.map((city) => {
+            {availableCities.map((city) => {
               return (
                 <MenuItem key={city.apiName} value={city.apiName}>
-                  {city.desplayName}
+                  {city.displayName}
                 </MenuItem>
               );
             })}
